@@ -1,0 +1,30 @@
+NON-DISCLOSURE AGREEMENT (NDA)
+
+This Non-Disclosure Agreement is executed on 10-03-2026 by and between:
+Innovate AI Labs ("Disclosing Party"), and CloudScale Systems ("Receiving Party").
+
+PURPOSE:
+The Disclosing Party agrees to share proprietary source code, machine learning model weights, and architectural designs with the Receiving Party for evaluating potential merger opportunities.
+
+DURATION:
+This Agreement shall remain in effect for a duration of 24 months from the Effective Date of 15-03-2026.
+
+KEY OBLIGATIONS:
+• Receiving Party shall hold all proprietary information in strict confidence.
+• Receiving Party shall not reverse-engineer, duplicate, or distribute any proprietary assets.
+• Receiving Party must notify Disclosing Party immediately upon discovery of any unauthorized access.
+
+PAYMENT:
+No payment or financial compensation is required under this agreement as it is a reciprocal confidentiality arrangement.
+
+TERMINATION:
+Either party may terminate this agreement with 15 days written notice; however, confidentiality obligations survive termination for a period of 5 years.
+
+IMPORTANT DATES:
+Effective Date: 15-03-2026
+Expiration Date: 15-03-2028
+
+POTENTIALLY IMPORTANT CLAUSES:
+• Confidentiality and Non-Circumvention
+• Injunction and Damages
+• Governing Law under High Court of Madras

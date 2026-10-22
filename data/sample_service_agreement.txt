@@ -1,0 +1,35 @@
+SERVICE AGREEMENT
+
+This Service Agreement (the "Agreement") is entered into on January 15, 2026, by and between ABC Technologies, a corporation having its principal office at Tech Park, Bangalore, India ("Client"), and XYZ Solutions, a software consulting firm having its registered office at Cyber City, Hyderabad, India ("Service Provider").
+
+1. PURPOSE & SCOPE OF SERVICES
+The agreement defines the terms under which software development services will be provided. The Service Provider shall design, develop, test, and deploy a custom enterprise inventory tracking application as per the Client's specifications.
+
+2. DURATION & TERM
+This Agreement shall be effective from February 01, 2026, and shall continue in full force and effect for a duration of 12 months, expiring on January 31, 2027, unless terminated earlier in accordance with the terms herein.
+
+3. KEY OBLIGATIONS
+- The Service Provider shall deliver software development milestones in accordance with the agreed technical specifications.
+- The Service Provider shall assign qualified personnel and ensure code quality and unit testing.
+- The Client shall provide necessary system access, documentation, and prompt approvals.
+- Both parties shall cooperate in good faith to resolve technical roadblocks.
+
+4. PAYMENT TERMS
+The Client shall pay the Service Provider a total consideration of ₹600,000 payable in monthly installments of ₹50,000 per month. Invoices shall be submitted on the 1st of each calendar month and paid within 15 days of receipt.
+
+5. CONFIDENTIALITY
+Each party agrees that all technical, business, and financial information disclosed during the term of this Agreement shall remain strictly confidential. Neither party shall disclose such proprietary information to any third party without prior written authorization.
+
+6. INTELLECTUAL PROPERTY
+All custom software code, documentation, and deliverables created by the Service Provider specifically for the Client under this Agreement shall belong exclusively to the Client upon full payment.
+
+7. TERMINATION CONDITIONS
+Either party may terminate this Agreement without cause by providing 30 days written notice to the other party. Either party may terminate immediately for material breach if the breaching party fails to cure such breach within 15 days of written notice.
+
+8. GOVERNING LAW & DISPUTE RESOLUTION
+This Agreement shall be governed by and construed in accordance with the laws of India. Any disputes arising hereunder shall be subject to the exclusive jurisdiction of the courts of Bangalore.
+
+IN WITNESS WHEREOF, the parties have executed this Service Agreement as of the date first above written.
+
+ABC Technologies                       XYZ Solutions
+By: John Doe, Director                 By: Jane Smith, CEO

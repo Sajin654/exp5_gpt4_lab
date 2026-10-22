@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LegalAI – Automated Legal Document Analyzer</title>
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-logo">⚖️</div>
+                <div class="brand-info">
+                    <span class="brand-name">LegalAI</span>
+                    <span class="brand-badge">PRO</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-label">WORKSPACE</div>
+                <a href="#" class="nav-item active">
+                    <span class="nav-icon">📄</span>
+                    <span class="nav-text">Document Analyzer</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-engine-card">
+                <div class="engine-header">
+                    <span class="engine-label">🤖 AI Engine</span>
+                    <span class="engine-status-dot"></span>
+                </div>
+                <select id="engineSelect" class="engine-dropdown">
+                    <option value="ollama" selected>Ollama (Llama 3.2)</option>
+                    <option value="openai">OpenAI (GPT-4o)</option>
+                </select>
+                <div id="openaiKeyBox" class="openai-key-input" style="display: none;">
+                    <input type="password" id="apiKeyInput" placeholder="Enter OpenAI API Key" />
+                </div>
+                <div class="engine-caption">Local AI Runtime Active</div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="project-tag">
+                    <div class="project-icon">🎓</div>
+                    <div class="project-details">
+                        <div class="project-title">Academic Project</div>
+                        <div class="project-sub">24CS2506 – GPT-4 Lab Exp 5</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN VIEW -->
+        <main class="main-content">
+            <!-- TOP NAVBAR -->
+            <header class="topbar">
+                <div class="breadcrumb">
+                    <span>Workspace</span>
+                    <span class="separator">›</span>
+                    <span class="current">Analysis</span>
+                </div>
+                <div class="topbar-actions">
+                    <div class="engine-pill">
+                        <span class="dot-pulse"></span>
+                        <span id="activeEngineText">Connected: Llama 3.2</span>
+                    </div>
+                    <button class="topbar-btn" id="newAnalysisBtn">
+                        <span>⚖️</span> Document Analysis
+                    </button>
+                </div>
+            </header>
+
+            <div class="page-container">
+                <!-- HERO HEADER -->
+                <div class="page-hero">
+                    <h1 class="page-title">Understand your legal documents.</h1>
+                    <p class="page-subtitle">Upload a document or paste text to generate a detailed summary, clauses &amp; risk assessment.</p>
+                </div>
+
+                <!-- MAIN WORKSPACE GRID -->
+                <div class="workspace-grid">
+                    <!-- LEFT COLUMN: INPUT FORM -->
+                    <div class="form-column">
+                        <div class="card form-card">
+                            <div class="card-header">
+                                <div class="card-title-wrap">
+                                    <span class="card-icon">⬆️</span>
+                                    <h2 class="card-title">Analyze a document</h2>
+                                </div>
+                                <span class="card-hint">Upload a file or paste legal text below</span>
+                            </div>
+
+                            <form id="analyzeForm" enctype="multipart/form-data">
+                                <!-- DROPZONE -->
+                                <div class="upload-dropzone" id="dropZone">
+                                    <input type="file" id="fileInput" name="file" accept=".txt,.pdf" style="display: none;" />
+                                    <div class="dropzone-icon">☁️</div>
+                                    <div class="dropzone-title">Choose a document to upload</div>
+                                    <div class="dropzone-hint">Supports TXT or PDF format (Max 16MB)</div>
+                                    <button type="button" class="btn-browse" onclick="document.getElementById('fileInput').click();">
+                                        Browse File
+                                    </button>
+                                    <div id="fileSelectedBadge" class="file-badge" style="display: none;">
+                                        <span class="file-badge-icon">📄</span>
+                                        <span id="selectedFileName">filename.txt</span>
+                                        <button type="button" class="file-remove-btn" id="removeFileBtn">✕</button>
+                                    </div>
+                                </div>
+
+                                <!-- SAMPLE PRESETS -->
+                                <div class="samples-row">
+                                    <span class="samples-label">Quick Samples:</span>
+                                    <button type="button" class="sample-pill" data-sample="service">Service Agreement</button>
+                                    <button type="button" class="sample-pill" data-sample="employment">Employment Contract</button>
+                                    <button type="button" class="sample-pill" data-sample="nda">NDA</button>
+                                    <button type="button" class="sample-pill" data-sample="pdf">Sample PDF</button>
+                                </div>
+
+                                <!-- TEXT AREA -->
+                                <div class="form-group">
+                                    <label for="documentContent" class="form-label">
+                                        Legal document content
+                                    </label>
+                                    <textarea 
+                                        id="documentContent" 
+                                        name="content" 
+                                        class="document-textarea" 
+                                        rows="10" 
+                                        placeholder="Paste your contract, agreement, NDA, or legal terms here if not uploading a file..."></textarea>
+                                </div>
+
+                                <!-- ACTION BUTTON -->
+                                <button type="submit" class="btn-submit" id="submitBtn">
+                                    <span class="btn-icon">⚡</span>
+                                    <span class="btn-text">Analyze Document</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT COLUMN: FEATURE CARDS -->
+                    <div class="info-column">
+                        <div class="feature-card">
+                            <div class="feature-icon-box">✨</div>
+                            <div class="feature-body">
+                                <h3 class="feature-title">AI-powered insights</h3>
+                                <p class="feature-desc">Generate comprehensive intelligence from legal agreements with zero hallucination and high precision.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon-box">🏛️</div>
+                            <div class="feature-body">
+                                <h3 class="feature-title">Structured analysis</h3>
+                                <p class="feature-desc">Extracts parties, duration, payment terms, key obligations, termination policies, and critical dates.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon-box">⚠️</div>
+                            <div class="feature-body">
+                                <h3 class="feature-title">Review AI-generated results</h3>
+                                <p class="feature-desc">AI results provide rapid analysis. Always verify against specific jurisdictional and contractual requirements.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LOADING SPINNER BANNER -->
+                <div id="loadingBanner" class="loading-container" style="display: none;">
+                    <div class="spinner"></div>
+                    <div class="loading-text">
+                        <div class="loading-primary">Analyzing legal document with AI...</div>
+                        <div class="loading-secondary">Preprocessing text, identifying sections, and extracting structured clauses</div>
+                    </div>
+                </div>
+
+                <!-- RESULTS SECTION -->
+                <div id="resultsSection" class="results-card card" style="display: none;">
+                    <div class="card-header results-header">
+                        <div class="card-title-wrap">
+                            <span class="card-icon check-icon">✓</span>
+                            <div>
+                                <h2 class="card-title">Analysis report</h2>
+                                <p class="card-subtitle">Generated legal analysis based on provided contract</p>
+                            </div>
+                        </div>
+                        <div class="results-actions">
+                            <a href="/download" class="btn-download" id="downloadBtn">
+                                <span>📥</span> Download Report
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- METRICS STRIP -->
+                    <div class="metrics-strip" id="metricsStrip">
+                        <div class="metric-item">
+                            <span class="metric-label">Document</span>
+                            <span class="metric-val" id="metricDocName">-</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Words</span>
+                            <span class="metric-val" id="metricWords">-</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Characters</span>
+                            <span class="metric-val" id="metricChars">-</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Sections Detected</span>
+                            <span class="metric-val" id="metricSections">-</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Engine</span>
+                            <span class="metric-val" id="metricEngine">-</span>
+                        </div>
+                    </div>
+
+                    <!-- FORMATTED REPORT VIEWER -->
+                    <div class="report-viewer" id="reportViewer">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+EMPLOYMENT AGREEMENT
+
+This Employment Agreement is entered into on June 15, 2026, by and between Apex Global Solutions Pvt. Ltd. ("Employer") and Rahul Sharma ("Employee").
+
+1. PURPOSE
+The purpose of this agreement is the employment of the individual by the organization as a Senior Software Engineer.
+
+2. DURATION
+The duration of employment shall be 12 months, commencing on the Start Date of 01-07-2026, subject to renewal upon mutual performance evaluation.
+
+3. KEY OBLIGATIONS
+• Employee must maintain strict confidentiality regarding all company trade secrets, software designs, and internal data.
+• Employee must perform assigned duties and software engineering tasks diligently and observe company policies.
+• Employer must provide required computing equipment, developmental tools, and a safe workplace.
+
+4. PAYMENT TERMS
+The Employee shall receive a monthly salary as specified in the agreement, amounting to ₹85,000 per month, payable via direct bank deposit on the last working day of each month.
+
+5. TERMINATION
+Either party may terminate employment by giving 30 days written notice, or payment of salary in lieu of notice. The Employer may terminate employment immediately without notice in cases of gross misconduct or breach of confidentiality.
+
+6. IMPORTANT DATES
+- Offer Acceptance Date: 15-06-2026
+- Start Date: 01-07-2026
+- Initial Term Review Date: 01-07-2027
+
+7. POTENTIALLY IMPORTANT CLAUSES
+• Confidentiality: Non-disclosure of proprietary trade secrets during and after employment.
+• Termination: 30 days written notice required by either party.
+• Intellectual Property: All patents, code, and inventions developed during employment belong exclusively to the Employer.
+• Non-Compete: Employee shall not engage in competing businesses for 6 months post-employment.
+
+Signed:
+Employer: Apex Global Solutions
+Employee: Rahul Sharma
